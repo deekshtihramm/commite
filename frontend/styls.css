@@ -1,0 +1,235 @@
+body {
+    background: radial-gradient(circle, #1c1c22, #1c1c22);
+    transition: background 1s ease;
+}
+
+
+.navbar {
+    position: fixed; /* Fixes the navbar to the top of the page */
+    top: 0; /* Position it at the top */
+    width: 100%; /* Full width */
+    background: radial-gradient(circle, #1c1c22, #1c1c22);
+    z-index: 5; /* Ensure it is above other elements */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between items */
+    padding: 10px 20px; /* Padding for better appearance */
+    
+}
+
+.custom-btn:hover{
+    color: #00fe15;
+    border: none;
+}
+
+#cancel-button {
+    position: absolute;   /* Make the button position absolute to place it on top */
+    top: 130px;
+    left: 480px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: rgb(218, 212, 212);
+    cursor: pointer;
+    z-index: 1000;         /* Ensure it’s on top of other elements */
+}
+
+button{
+    font-size: 1.3rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+}
+
+
+.navbar-brand.brand {
+    color: #00ff08;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar-nav .nav-item  {
+    color: #000000; /* Light gray text for nav links */
+    padding-left: 25px; /* Space between items */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #00fe15; /* Green hover color for nav links */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1); /* Slightly visible toggle border */
+}
+
+.navbar-toggler-icon {
+    color: #f20000; /* Icon color for navbar toggler */
+}
+
+
+.custom-btn {
+    font-size: 1.3rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    border: none;
+    background: radial-gradient(circle, #1c1c22, #1c1c22);
+
+}
+
+.custom-btn:hover {
+    color: #00ff2f;
+    transform: scale(1.2);
+    border: none;
+
+}
+
+.custom-btn:focus {
+    outline: none;
+    color: #00fe15;
+    font-weight: bold;
+}
+/* Styles for the card with new size */
+
+
+#upload-card {
+    height: 600px; /* Adjusted height */
+    width: 400px; /* Adjusted width */
+    max-width: 100%; /* Responsive width */
+    padding: 450px 10px 10px 10px;
+    left: 10px ; /* Positions it 10px from the left side */
+    transform: translateY(-50%); /* Center align vertically */
+
+}
+
+.custom-card .card {
+    padding: 10px;
+    border-radius: 30px; /* Rounded corners */
+    background: rgb(41, 41, 43); /* Outer card background */
+}
+
+.inner-card1{
+    
+    border: 2px dashed #000; /* 2px dashed border with black color */
+
+}
+.inner-card1:hover {
+    background: rgb(33, 32, 36); /* Background color on hover */
+}
+
+.image-container {
+    display: flex; /* Flexbox for centering */
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+}
+
+.img {
+    width: 200px; /* Image width */
+    height: 200px; /* Image height */
+    margin-top: 1px;
+    filter: sepia(100%) hue-rotate(180deg) saturate(200%);
+}
+
+.p1, .p2 {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.p1 {
+    margin-top: -40px;
+}
+
+.p2 {
+    margin-top: -20px;
+}
+
+
+
+.text-container {
+    margin-top: -0px;
+    max-width: 600px;
+    color: #ffffff;
+    padding: 20px;
+    height: 300px;
+    width: auto;
+    padding-top:180px ;
+
+}
+
+.text-title {
+    font-size: 20px;
+    color: #00ff08;
+}
+
+.text-content {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+
+.circle {
+    position: fixed;
+    top: 90%;
+    left: 90%;
+    width: 700px; /* Diameter of the circle */
+    height: 700px; /* Diameter of the circle */
+    background-color: rgba(0, 255, 0, 0.350); /* Circle color with transparency */
+    border-radius: 50%; /* Makes it a circle */
+    transform: translate(-50%, -50%); /* Centers the circle */
+    z-index: -1; /* Sends it to the back */
+}
+
+.circle1 {
+    position: fixed;
+    top: 110%;
+    left: 65%;
+    width: 400px; /* Diameter of the circle */
+    height: 400px; /* Diameter of the circle */
+    background-color: rgba(0, 255, 0, 0.550); /* Circle color with transparency */
+    border-radius: 50%; /* Makes it a circle */
+    transform: translate(-50%, -50%); /* Centers the circle */
+    z-index: -1; /* Sends it to the back */
+}
+
+.circle2 {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    width: 150px; /* Diameter of the circle */
+    height: 150px; /* Diameter of the circle */
+    background-color: rgba(0, 255, 0, 0.450); /* Circle color with transparency */
+    border-radius: 50%; /* Makes it a circle */ 
+    transform: translate(-50%, -50%); /* Centers the circle */
+    z-index: -1; /* Sends it to the back */
+}
+
+.circle3 {
+    position: fixed;
+    top: 70%;
+    left: 19%;
+    width: 100px; /* Diameter of the circle */
+    height: 100px; /* Diameter of the circle */
+    background-color: rgba(0, 255, 0, 0.350); /* Circle color with transparency */
+    border-radius: 50%; /* Makes it a circle */
+    transform: translate(-50%, -50%); /* Centers the circle */
+    z-index: -1; /* Sends it to the back */
+}
+
+.newcard{ 
+    padding: 10px;
+    width: 500px; /* Outer card width */
+    height: auto; /* Outer card height */
+    border-radius: 30px; /* Rounded corners */
+    background: rgb(60, 59, 71); /* Outer card background */
+    margin-top: -200px;
+    }
+    
+/* Mobile view padding */
+@media (max-width: 768px) {
+    .text-container {
+        margin-top:-190px; /* Adjust this value for mobile */
+    }
+    .detialimage{
+        margin-top: 180px;
+    }
+
+}

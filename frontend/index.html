@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/frontend/bootstrap.css" rel="stylesheet">
+    <link href="/frontend/styls.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome -->
+    <title>Commite Nexus</title>
+    <script>
+        function myFunction() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fileurl = urlParams.get('file-url');
+            console.log(fileurl);
+        }
+        window.onload = myFunction;
+    </script>
+    <style>
+        .detialimage{
+            margin: 10px auto 50px auto;
+}
+
+/* Mobile view padding */
+@media (max-width: 768px) {
+   
+    .detialimage{
+        margin: 280px auto 50px auto;
+    }
+    
+
+}
+
+        </style>
+</head>
+
+<body  style="height: 2000px; overflow-y: auto;">
+
+    <div class="circle"></div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a href="#" class="navbar-brand brand">Commite <span class="text-white">Nexus</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <button style="color: rgb(0, 255, 0);" class="nav-link custom-btn active" onclick="window.location.href='http://127.0.0.1:3002/api/index'">Home</button>
+            </li>
+            <li class="nav-item">
+                <button style="color: rgb(255, 255, 255);" class="nav-link custom-btn" onclick="window.location.href='http://127.0.0.1:3002/api/download'">Download</button>
+            </li>
+            <li class="nav-item">
+                <button style="color: rgb(255, 255, 255);" class="nav-link custom-btn" onclick="window.location.href='http://127.0.0.1:3002/api/about'">About</button>
+            </li>
+            <li class="nav-item">
+                <button style="color: rgb(255, 255, 255);" class="nav-link custom-btn" onclick="window.location.href='http://127.0.0.1:3002/api/contact'">Contact</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <div class="container">
+        <div id="home" class="content-section active row">
+            <!-- Upload Card Column -->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="custom-card" id="upload-card">
+                    <div class="card">
+                        <button class="cancel-button" id="cancel-button" onclick="resetUpload()" style="display: none;">&times;</button> 
+                
+                           <div class="card-body ">
+                            
+                            <div class="inner-card" id="file-card">
+                            <form id="upload-form" enctype="multipart/form-data" onsubmit="uploadFile(event)">
+                                <label for="file-upload" class="card inner-card1" id="file-label">
+                                    <div class="image-container">
+                                        <img src="/frontend/upload.png" alt="Uploaded Image" class="img img-fluid">
+                                    </div>
+                                   <center> <div class="card-body">
+                                        <p class="p1">Upload your file here</p>
+                                        <p class="p2" id="file-name1">No file chosen</p>
+                                    </div></center>
+                                    <input type="file" id="file-upload" name="file" class="form-control-file" style="display: none;" onchange="showFileNameAndQRCode()" />
+                                </label>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 text-container">
+                <div class="content-text">
+                    <h1><span style="color: rgb(0, 255, 0);">Effortlessly </span>transfer your files directly from device to device with no extra steps.<h4> Our solution is designed for speed and simplicity, enabling you to move data quickly, safely, and without relying on external servers.</h4></h1>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+            <!-- New Card -->
+             <div id="new-card" style="display: none; margin-left: 50px; margin-bottom: 100px;">
+                  <div class="newcard" >
+                     
+                    <button id="cancel-button" class="cancel-button1"  onclick="resetUpload()">&times;</button> 
+                  
+                    <div class="card-body">
+                             <div class="inner-card" style="padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+                       
+                  
+                           <center>  <h3 class="p2" id="file-name"></h3></center>
+                            <div id="qrcode" style="margin-bottom: 15px; display: none;"></div>
+                            <div class="image-container">
+                                <h6 id="file-name" style="margin-bottom: 10px;"></h6>
+                                <img id="uploaded-image" class="img2" style="max-width: 100%; height: auto; border-radius: 5px;  margin-left: 40px;">
+                                <div style="display: flex; align-items: center; margin-top: 20px;">
+                                    <div style="padding-left: 20px; flex-grow: 1;">
+                                        <label for="file-name3">File name:</label>
+                                        <input type="text" id="file-name3" readonly style="width: 200px;" class="url-input1"></br>
+                                        
+                                        <label>URL: </label>
+                                        <input type="text" id="file-url" class="url-input" readonly placeholder="File URL" style="width: 200px; margin-right: 10px; margin-top: -5px;" />
+                                        <input type="text" id="qr-url" class="url-input" readonly placeholder="QR Code URL" style="flex-grow: 1; width: 250px; margin-right: 10px; display: none;" />
+                                        <button class="copy-button btn btn-secondary" style="display: none; margin-left: -0px; margin-top: 5px;" onclick="copyURL()">Copy URL</button>
+                                        <p id="file-code" style="margin-top: 10px;"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div style="display: flex; gap: 10px;">
+                                <button onclick="shareQRCodeImage()" style="margin-top: 0px; height: 30px; font-size: small;">Share QR Code</button>
+
+                                <button onclick="shareFile()" style="background-color: #25D366; color: white; border: none; padding: 10px; width: 30px; height: 30px; border-radius: 10%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-share-alt" aria-hidden="true"></i>
+                                </button>
+                                <button onclick="shareOnFacebook()" style="background-color: #3b5998; color: white; border: none; padding: 10px; width: 30px; height: 30px; border-radius: 10%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                                </button>
+                                <button onclick="shareOnTwitter()" style="background-color: #1da1f2; color: white; border: none; padding: 10px; width: 30px; height: 30px; border-radius: 10%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                                </button>
+                                <button onclick="shareOnLinkedIn()" style="background-color: #0077b5; color: white; border: none; padding: 10px; width: 30px; height: 30px; border-radius: 10%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                </button>
+                                <button onclick="shareOnWhatsApp()" style="background-color: #25D366; color: white; border: none; padding: 10px; width: 30px; height: 30px; border-radius: 10%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                                </button>
+                                <button onclick="shareViaEmail()" style="background-color: #f39c12; color: white; border: none; padding: 10px; width: 30px; height: 30px; border-radius: 10%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            
+                        
+                            <div id="loading-indicator" style="display: none; margin-top: 15px;">Uploading...</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    
+    <div style="max-width: 800px;  padding: 20px; padding-top: 50px;  border: 1px solid #383737; border-radius: 10px; background-image: url('/frontend/logo3.jpg'); background-size: cover; background-position: center; height: 450px;" class="detialimage">
+        
+    </div>
+
+    <div style="max-width: 800px; margin: 50px auto; padding: 20px;  border: 1px solid #383737; border-radius: 10px;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <!-- Logo/Icon -->
+
+            <!-- Text Content -->
+            <div style="text-align: left;">
+                <h2 style="color: #ffffff; font-size: 1.8em; margin-bottom: 10px;">No More File Size Limits</h2>
+                <p style="color: #d4d4d4; font-size: 1.1em; line-height: 1.6;">
+                    Share files of any size, any amount, anytime. Since data isn't stored, you can send as much as you'd like without worrying about restrictions. Just keep track of your own data usage to enjoy seamless sharing!
+                </p>
+            </div>
+            <i class="fas fa-share-alt" style="font-size: 150px; color: #4A90E2;"></i>
+    
+        </div>
+    </div>
+
+    
+    
+    
+
+    <div style="max-width: 800px; margin: 50px auto; padding: 20px; border: 1px solid #383737; border-radius: 10px;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <!-- Logo/Icon -->
+
+            <!-- Text Content -->
+            <div style="text-align: left;">
+                <h2 style="color: #ffffff; font-size: 1.8em; margin-bottom: 10px;">No More File Size Limits</h2>
+                <p style="color: #d4d4d4; font-size: 1.1em; line-height: 1.6;">
+                    Share files of any size, any amount, anytime. Since data isn't stored, you can send as much as you'd like without worrying about restrictions. Just keep track of your own data usage to enjoy seamless sharing!
+                </p>
+            </div>
+            <i class="fas fa-share-alt" style="font-size: 150px; color: #4A90E2;"></i>
+    
+        </div>
+    </div>
+
+          
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/frontend/script.js"></script>
+
+</body>
+</html>

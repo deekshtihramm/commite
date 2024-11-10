@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/frontend/bootstrap.css" rel="stylesheet">
+    <link href="/frontend/style.css" rel="stylesheet">
+    <title>Commite Nexus</title>
+    <style>
+        .color {
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body style="height: 1000px;overflow-y: auto;">
+    <div class="circle"></div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="#" class="navbar-brand brand" style="color: #00ff00;">Commite <span class="text-white">Nexus</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button style="color: rgb(255, 255, 255);" class="nav-link custom-btn active" onclick="window.location.href='http://127.0.0.1:3002/api/index'">Home</button>
+                </li>
+                <li class="nav-item">
+                    <button style="color: rgb(255, 255, 255);" class="nav-link custom-btn" onclick="window.location.href='http://127.0.0.1:3002/api/download'">Download</button>
+                </li>
+                <li class="nav-item">
+                    <button style="color: rgb(255, 255, 255);" class="nav-link custom-btn" onclick="window.location.href='http://127.0.0.1:3002/api/about'">About</button>
+                </li>
+                <li class="nav-item">
+                    <button style="color: rgb(0, 255, 0);" class="nav-link custom-btn" onclick="window.location.href='http://127.0.0.1:3002/api/contact'">Contact</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4" style="margin-top:50px;">
+        <h1 class="text-center">Contact Us</h1>
+        <p class="text-center color">We’d love to hear from you! If you have any questions or feedback, please reach out to us using the form below.</p>
+
+        <div class="contact-info text-center mb-4">
+            <h4 class="color">Contact Information:</h4>
+            <p class="color">Email: support@commitenexus.com</p>
+            <p class="color">Phone: +91 7989254913</p>
+            <p class="color">Address: 1234 Your Street, Your City, Your Country</p>
+        </div>
+
+        <fieldset style="max-width: 500px; margin: auto; padding: 20px;">
+            <form action="submit_form.php" method="post">
+                <div class="form-group">
+                    <label for="name" class="color">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="color">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="color">Message:</label>
+                    <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </fieldset>
+
+        <p class="text-center mt-4 color">Thank you for reaching out to us! We look forward to connecting with you.</p>
+    </div>
+
+    <!-- Include Bootstrap's JavaScript and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

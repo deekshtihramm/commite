@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/frontend/bootstrap.css" rel="stylesheet">
+    <link href="/frontend/style.css" rel="stylesheet">
+    <title>Commite Nexus</title>
+    <style>
+        /* General Card Styling */
+        .custom-card .card {
+            border: none;
+            border-radius: 8px;
+            background-color: rgb(60, 59, 71);
+            
+            height: auto;
+        }
+        .btn-primary, .btn-secondary {
+            border-radius: 0;
+            background: #333;
+            color: #fff;
+        }
+        .btn-primary:hover, .btn-secondary:hover {
+            background: #555;
+        }
+        .card-body h4 {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        /* Padding for different views */
+        #text-container {
+            padding-top: 20px; /* Default padding for desktop */
+        }
+        @media (max-width: 768px) {
+            body{
+                overflow-y: auto;
+                height: 1000px;
+            }
+            #text-container {
+                padding-top: 40px; /* Larger padding for mobile */
+            }
+            /* Adjust the width of the card for mobile */
+            .custom-card .card {
+                width: auto;
+                margin: 20px;
+            }
+            /* Stack the cards on mobile */
+            .col-md-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body  style="height: 700px;overflow-y: auto;">
+    
+    <div class="circle"></div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="#" class="navbar-brand brand" style="color: #00ff00;">Commite <span class="text-white">Nexus</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button style="color: rgb(255, 255, 255);" class="nav-link custom-btn active" onclick="window.location.href='http://127.0.0.1:3002/api/index'">Home</button>
+                </li>
+                <li class="nav-item">
+                    <button style="color: rgb(0, 255, 0);" class="nav-link custom-btn" onclick="window.location.href='http://127.0.0.1:3002/api/download'">Download</button>
+                </li>
+                <li class="nav-item">
+                    <button style="color: rgb(255, 255, 255);" class="nav-link custom-btn" onclick="window.location.href='http://127.0.0.1:3002/api/about'">About</button>
+                </li>
+                <li class="nav-item">
+                    <button style="color: rgb(255, 255, 255);" class="nav-link custom-btn" onclick="window.location.href='http://127.0.0.1:3002/api/contact'">Contact</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Section for File Retrieval and QR Code Upload -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <!-- Retrieve File by URL -->
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <div class="card" id="upload-card">
+                        <div class="card-body" id="text-container">
+                            <h4>Retrieve File by URL</h4>
+                            <input type="text" id="api-url" class="form-control" placeholder="Enter API URL" required>
+                            <button class="btn btn-primary mt-3" onclick="retrieveFileByUrl()">Retrieve by URL</button>
+                            <br>
+                            <a id="download-link-url" style="display: none; padding-top: 20px; padding-left: 30px;">Download File</a>
+                            <p id="status-message" style="color: aliceblue;"></p>
+                            
+                            <!-- Placeholders for displaying file -->
+                            <img id="image-display" style="display: none; max-width: 100%;" />
+                            <iframe id="pdf-display" style="display: none; width: 100%; height: 600px;"></iframe>
+                            <pre id="text-display" style="display: none; white-space: pre-wrap;"></pre>
+                            
+                            <!-- View button -->
+                            <button id="view-button" style="display: none;" onclick="viewFile()">View File</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Retrieve File by Code -->
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <div class="card" id="upload-card">
+                        <div class="card-body">
+                            <h4>Retrieve File by Code</h4>
+                            <input type="text" id="file-code" class="form-control" placeholder="Enter File Code" required>
+                            <button class="btn btn-primary mt-3" onclick="retrieveFileByCode()">Retrieve by Code</button>
+                            <p id="status-message" style="color: aliceblue;"></p>
+                            <a id="download-link-code" style="display: none;">Download File</a>
+                            <!-- View button -->
+                            <button id="view-button-code" style="display: none;" class="btn btn-secondary mt-2" onclick="viewFileCode()">View File</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QR Code Upload and URL Retrieval -->
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <div class="card" id="qr-upload-card">
+                        <div class="card-body">
+                            <h4>Upload QR Code to Retrieve URL</h4>
+                            <input type="file" id="qr-input" class="form-control" accept="image/*" onchange="decodeQRCode()">
+                            <canvas id="qr-canvas" style="display: none;"></canvas>
+                            <div id="decoded-result" class="mt-4"></div>
+                            <button class="btn btn-primary mt-3" onclick="processQRCode()">Process QR Code</button>
+                            <a id="download-link-qr" style="display:none;">Download File</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <div id="status-message" class="mt-4"></div>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/frontend/downloadscript.js"></script> <!-- Link to the JS file -->
+</body>
+</html>

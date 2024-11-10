@@ -1,0 +1,341 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(circle, #1c1c22, #1c1c22);
+    background-size: cover;
+    background-position: center;
+    color: #e0e0e0; /* Light gray text for contrast */
+    font-family: 'Helvetica Neue', sans-serif; /* Modern, clean font */
+    font-size: 15px;
+    letter-spacing: 0.8px;
+    transition: background 1s ease;
+}
+
+.navbar {
+position: fixed; /* Fixes the navbar to the top of the page */
+top: 0; /* Position it at the top */
+width: 100%; /* Full width */
+background: radial-gradient(circle, #1c1c22, #1c1c22);
+z-index: 5; /* Ensure it is above other elements */
+display: flex; /* Use flexbox for alignment */
+justify-content: space-between; /* Space between items */
+padding: 10px 20px; /* Padding for better appearance */
+
+}
+
+.cancel-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: rgb(218, 212, 212);
+    cursor: pointer;
+    padding: 0;
+    display: none; /* Hide the cancel button initially */
+}
+
+.cancel-button1 {
+    margin-left: 440px;
+    margin-top: -35px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: rgb(218, 212, 212);
+    cursor: pointer;
+    padding: 0;
+    display: block;
+}
+
+.cancel-button:hover {
+    color: rgb(248, 171, 171); /* Change color on hover */
+    border: none; /* Ensures no border is applied on hover */
+}
+
+.cancel-button1:hover {
+    color: rgb(248, 171, 171); /* Change color on hover */
+    border: none; /* Ensures no border is applied on hover */
+}
+
+.cancel-button:active {
+    border: block; /* Ensures no border is applied when active (clicked) */
+    text-decoration-line: none;
+}
+
+.url-input {
+    margin-top: 15px; /* Space above the input */
+    display: none; /* Hidden by default */
+    width: calc(100% - 100px); /* Adjust width to make space for the copy button */
+    color: rgb(255, 255, 255); /* Set the text color to black, or any visible color */
+    border: 3px solid #000000; /* Add a visible border */
+    padding: 5px; /* Padding for a better look */
+    background-color: transparent; /* Light background color */
+    border-radius: 5px; /* Rounded corners */
+    width: 300px;
+}
+
+.url-input1 {
+    margin-top: -29px;
+    width: calc(100% - 100px); /* Adjust width to make space for the copy button */
+    color: rgb(255, 255, 255); /* Set the text color to black, or any visible color */
+    padding: 5px; /* Padding for a better look */
+    background-color: transparent; /* Light background color */
+    border-radius: 5px; /* Rounded corners */
+    width: 300px;
+}
+
+.copy-button {
+            margin-top: 15px; /* Space above the button */
+            display: none; /* Hidden by default */
+            margin-left: 10px; /* Space between input and button */
+}
+
+.url-box {
+    margin-top: 15px; /* Space above the box */
+    display: none; /* Hidden by default */
+    background-color: #ffffff; /* Dark text color */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text */
+}
+
+.custom-btn {
+    font-size: 1.3rem;
+    color: aliceblue;
+    transition: color 0.3s ease, transform 0.3s ease;
+    border: none;
+}
+
+.custom-btn:hover {
+    color: #00ff2f;
+    transform: scale(1.2);
+    border: none;
+
+}
+
+.custom-btn:focus {
+    outline: none;
+    color: #00fe15;
+   font-weight: bold;
+}
+
+.content-section {
+    display: none;
+}
+
+.active {
+    display: block;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.centered-card {
+    
+display: flex; /* Use flexbox for layout */
+justify-content: flex-start; /* Align items to the start */
+align-items: center; /* Center items vertically */
+height: 90vh; /* Full height of the viewport */
+margin: auto; /*Adjust margin as needed */
+}
+
+.text-content {
+margin: auto;
+    color: #ffffff; /* Text color */
+}
+
+.brand{
+    color: #00ff00;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a:hover{
+    color: #00fe15;
+    text-decoration-line: none;
+}
+
+.nav-item:hover{
+    color: #00fe15;
+    
+}
+
+.custom-btn:hover{
+    color: #00fe15;
+    border: none;
+}
+
+button{
+    background-color: transparent;
+    font-size: 1.3rem;
+    color: aliceblue;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+}
+
+.nav-item{
+    padding-left: 20px;
+}
+
+.margin{
+    margin-top: 20px;
+}
+
+.custom-card .card {
+padding: 10px;
+width: 300px; /* Outer card width */
+height: 300px; /* Outer card height */
+border-radius: 30px; /* Rounded corners */
+background: rgb(60, 59, 71); /* Outer card background */
+transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+margin-top: -145px;
+margin-left: auto;
+}
+
+.custom-card .card:hover {
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+background: rgb(60, 59, 71); /* Change to your desired color */
+}
+
+.inner-card .img{
+    display: flex; /* Use Flexbox for layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 70%; /* Make sure it takes full height */
+    width: 70%; /* Make sure it takes full width */
+    
+    margin-top: 0px;
+
+}
+.inner-card .card {
+    border: 2px dashed #000; /* Inner card border */
+    padding: 5px;
+    background: transparent; /* Inner card background */
+    border-radius: 15px; /* Rounded corners for inner card */
+    width: 237px; /* Inner card width */
+    height: 237px; /* Inner card height */
+    display: flex; /* Use Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    transition: transform 0.3s ease; /* Smooth transition for inner card */
+    
+    margin-top: 5px;
+}
+
+
+.inner-card .card:hover {
+transform: scale(1.05); /* Slightly increase size for inner card */
+background-color: #898e89;
+}
+
+.custom-file-upload {
+display: inline-block;
+padding: 10px 20px;
+cursor: pointer;
+background-color: #007bff;
+color: white;
+border-radius: 5px;
+text-align: center;
+}
+
+.custom-file-upload:hover {
+background-color: #0056b3;
+}
+
+.image-container {
+    
+display: flex; /* Use Flexbox for layout */
+justify-content: center; /* Center horizontally */
+align-items: center; /* Center vertically */
+height: 100%; /*Ensure it takes full height of the parent */
+width: 80%;
+
+}
+
+.img {
+width: 100px; /* Adjust width */
+height: 100px; /* Adjust height */
+margin-top: -27px; /* Adjust if needed */
+    filter: sepia(100%) hue-rotate(180deg) saturate(200%);
+
+}
+
+.p1{
+margin-top: -40px;
+
+}
+
+.p2{
+margin-top: -20px;
+
+}
+
+.newcard{ 
+padding: 10px;
+width: 500px; /* Outer card width */
+height: 430px; /* Outer card height */
+border-radius: 30px; /* Rounded corners */
+background: rgb(60, 59, 71); /* Outer card background */
+transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+margin-top: -250px;
+}
+
+.img2{
+    width: 200px; /* Adjust width */
+    height: 200px; /* Adjust height */
+    margin-top: 0px; /* Adjust if needed */
+    margin-left: 160px;
+    filter: sepia(100%) hue-rotate(180deg) saturate(200%);
+}
+
+.circle {
+    position: fixed;
+    top: 90%;
+    left: 90%;
+    width: 700px; /* Diameter of the circle */
+    height: 700px; /* Diameter of the circle */
+    background-color: rgba(0, 255, 0, 0.350); /* Circle color with transparency */
+    border-radius: 50%; /* Makes it a circle */
+    transform: translate(-50%, -50%); /* Centers the circle */
+    z-index: -1; /* Sends it to the back */
+}
+
+.circle1 {
+    position: fixed;
+    top: 110%;
+    left: 65%;
+    width: 400px; /* Diameter of the circle */
+    height: 400px; /* Diameter of the circle */
+    background-color: rgba(0, 255, 0, 0.550); /* Circle color with transparency */
+    border-radius: 50%; /* Makes it a circle */
+    transform: translate(-50%, -50%); /* Centers the circle */
+    z-index: -1; /* Sends it to the back */
+}
+
+.circle2 {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    width: 150px; /* Diameter of the circle */
+    height: 150px; /* Diameter of the circle */
+    background-color: rgba(0, 255, 0, 0.450); /* Circle color with transparency */
+    border-radius: 50%; /* Makes it a circle */ 
+    transform: translate(-50%, -50%); /* Centers the circle */
+    z-index: -1; /* Sends it to the back */
+}
+
+.circle3 {
+    position: fixed;
+    top: 70%;
+    left: 19%;
+    width: 100px; /* Diameter of the circle */
+    height: 100px; /* Diameter of the circle */
+    background-color: rgba(0, 255, 0, 0.350); /* Circle color with transparency */
+    border-radius: 50%; /* Makes it a circle */
+    transform: translate(-50%, -50%); /* Centers the circle */
+    z-index: -1; /* Sends it to the back */
+}
